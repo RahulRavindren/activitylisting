@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/bottom_navigation"
+            app:startDestination="@id/activitites_frag">
+
+    <fragment
+            android:id="@+id/activitites_frag"
+            android:label="@string/activities_frag"
+            android:name="com.acitivylisting.fragments.ActivitiesFragment"/>
+
+    <fragment
+            android:id="@+id/eat_out_frag"
+            android:label="@string/eatoutfrag"
+            android:name="com.acitivylisting.fragments.EatOutFragment"/>
+
+    <fragment
+            android:id="@+id/events_frag"
+            android:label="@string/eventsfrag"
+            android:name="com.acitivylisting.fragments.EventsFragment"/>
+
+    <fragment
+            android:id="@+id/you_frag"
+            android:label="@string/youfrag"
+            android:name="com.acitivylisting.fragments.YouFragment"/>
+
+</navigation>

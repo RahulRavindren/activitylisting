@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+            android:id="@+id/activities_menu"
+            android:title="@string/activities"
+    />
+    <item
+            android:id="@+id/eatout_menu"
+            android:title="@string/eatout"
+    />
+    <item
+            android:id="@+id/events_mentu"
+            android:title="@string/events"
+    />
+    <item
+            android:id="@+id/you_menu"
+            android:title="@string/you"/>
+</menu>

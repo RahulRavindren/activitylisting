@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">activitylisting</string>
+    <string name="travel">travel</string>
+    <string name="local">local</string>
+    <string name="activities">Activitites</string>
+    <string name="eatout">Eat out</string>
+    <string name="events">Events</string>
+    <string name="you">You</string>
+    <string name="activities_frag">ActivitiesFragment</string>
+    <string name="eatoutfrag">EatOutFragment</string>
+    <string name="eventsfrag">EventsFragment</string>
+    <string name="youfrag">YouFragment</string>
 </resources>
