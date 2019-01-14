@@ -10,7 +10,7 @@
             android:layout_height="wrap_content">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
@@ -21,7 +21,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-
+                <include layout="@layout/city_change_container"/>
+                <include layout="@layout/carousel_container"/>
             </LinearLayout>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -31,10 +32,12 @@
                 android:layout_height="wrap_content"
                 app:tabMode="scrollable"
                 app:tabGravity="fill"/>
-
-        <androidx.viewpager.widget.ViewPager
-                android:id="@+id/category_viewpager"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
     </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager.widget.ViewPager
+            android:id="@+id/category_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -21,4 +21,9 @@
         <item name="itemTextColor">@color/bottom_icon_tint</item>
     </style>
 
+    <style name="YouFragmentTheme">
+        <item name="android:background">@color/bottom_icon_tint</item>
+        <item name="android:textColor">@color/light_gray_dark_shade</item>
+    </style>
+
 </resources>

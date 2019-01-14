@@ -9,6 +9,8 @@ import com.activitylisting.common.utils.Logger
  * @Author rahulravindran
  */
 open class BaseFragment : Fragment() {
+    protected var isViewVisible: Boolean = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -31,6 +33,11 @@ open class BaseFragment : Fragment() {
     override fun onDestroy() {
         Logger.debug(C.LIFE_CYCLE, "fragment destroy");
         super.onDestroy()
+    }
+
+    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
+        isViewVisible = isVisibleToUser
+        super.setUserVisibleHint(isVisibleToUser)
     }
 
 }
