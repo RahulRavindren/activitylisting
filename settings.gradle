@@ -1,4 +1,8 @@
-include ':app', ':common'
+include ':app', ':common', ':data' ,':network',':cache', ':domain'
 
 
 project(':common').projectDir = new File('./common')
+project(':data').projectDir = new File('./data')
+project(':network').projectDir = new File('./network')
+project(':cache').projectDir = new File('./cache')
+project(':domain').projectDir = new File('./domain')
