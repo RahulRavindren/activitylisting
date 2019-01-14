@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+            android:visibility="gone"
+            layout="@layout/toolbar" />
+
+    <FrameLayout
+        android:id="@+id/base_view_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?actionBarSize" />
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/base_view_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:theme="@style/Widget.AppCompat.ProgressBar" />
+
+    <FrameLayout
+        android:id="@+id/base_view_error_layout_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?actionBarSize"
+        android:visibility="gone" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">common</string>
+    <string name="defualt_text_toolbar">Bus leaving in next 1 hr</string>
+</resources>
