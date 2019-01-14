@@ -1,0 +1,46 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply from: '../dependencies/dependencies.gradle'
+
+android {
+    compileSdkVersion project.ext.csv
+
+    defaultConfig {
+        minSdkVersion project.ext.msv
+        targetSdkVersion project.ext.csv
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "com.surveyapp.android.ApplicationJunitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api project.ext.network.retrofit
+    api project.ext.network.retrofit_converter
+    api project.ext.network.retrofit_rx_adapter
+    api project.ext.network.log_interceptor
+    api project.ext.libs.gson
+    implementation project.ext.rxjava.rxjava_android
+    implementation project.ext.rxjava.rxjava
+    implementation project(':common')
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'com.squareup.okhttp3:mockwebserver:3.11.0'
+    testImplementation 'org.mockito:mockito-core:2.6.3'
+    testImplementation "io.mockk:mockk:1.8.9"
+
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
