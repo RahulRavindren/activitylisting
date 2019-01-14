@@ -1,6 +1,6 @@
 package com.acitivylisting.fragments
 
-import com.redbussearch.common.basecommons.BaseFragment
+import com.activitylisting.common.basecommons.BaseFragment
 
 /**
  * @Author rahulravindran

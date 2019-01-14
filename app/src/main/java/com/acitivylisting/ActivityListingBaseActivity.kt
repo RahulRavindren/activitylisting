@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.navigation.Navigator
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
-import com.redbussearch.common.basecommons.BaseActivity
+import com.activitylisting.common.basecommons.BaseActivity
 import kotlinx.android.synthetic.main.activity_base_listing.*
 /**
  * @Author rahulravindran
