@@ -34,6 +34,8 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':common')
+    implementation project(':data')
+    implementation project(':domain')
     implementation project.ext.supportdependencies.nav_ui
     implementation project.ext.supportdependencies.nav_frag
     implementation project.ext.supportdependencies.design

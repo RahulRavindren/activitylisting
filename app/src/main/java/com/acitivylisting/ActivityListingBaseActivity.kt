@@ -4,16 +4,12 @@ import android.os.Bundle
 import androidx.navigation.Navigator
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
-import com.acitivylisting.interfaces.ActivityListingView
-import com.acitivylisting.presenter.ActivityListingPresenter
 import com.activitylisting.common.basecommons.BaseActivity
 import kotlinx.android.synthetic.main.activity_base_listing.*
 /**
  * @Author rahulravindran
  */
-class ActivityListingBaseActivity : BaseActivity(), Navigator.OnNavigatorBackPressListener, ActivityListingView {
-    private lateinit var mPresenter: ActivityListingPresenter
-
+class ActivityListingBaseActivity : BaseActivity(), Navigator.OnNavigatorBackPressListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,11 +19,6 @@ class ActivityListingBaseActivity : BaseActivity(), Navigator.OnNavigatorBackPre
 
     override fun onStart() {
         super.onStart()
-        if (!::mPresenter.isInitialized) {
-            mPresenter = ActivityListingPresenter(this).apply {
-                start()
-            }
-        }
     }
 
     private fun setupNavController() {
@@ -61,4 +52,6 @@ class ActivityListingBaseActivity : BaseActivity(), Navigator.OnNavigatorBackPre
         // kill activity if backpressed
         finish()
     }
+
+
 }
