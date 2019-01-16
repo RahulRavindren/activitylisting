@@ -1,4 +1,4 @@
-package com.redbussearch.data;
+package com.activitylisting.data;
 
 import org.junit.Test;
 

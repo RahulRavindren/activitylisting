@@ -1,22 +1,35 @@
 package com.acitivylisting.adapter
 
+import android.os.Bundle
 import android.util.SparseArray
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import com.acitivylisting.fragments.CategoryListingFragment
+import com.activitylisting.common.C
 import com.activitylisting.common.basecommons.BaseFragment
+import com.activitylisting.domain.entity.CategoryEntity
 
 
-class CategoryPagerAdapter(val fm: FragmentManager, val categories: List<Any>) : FragmentPagerAdapter(fm) {
+class CategoryPagerAdapter(val fm: FragmentManager?, val categories: List<CategoryEntity>?) : FragmentPagerAdapter(fm) {
     val arrayDict = SparseArray<BaseFragment>()
 
     override fun getItem(position: Int): Fragment {
-        return Fragment()
+        if (arrayDict[position] != null) {
+            return arrayDict[position]
+        }
+
+        val category = categories?.get(position)
+        val bundle = Bundle()
+        bundle.putSerializable(C.CATEGORY_ENTITY, category)
+        val fragment = CategoryListingFragment.getInstance(bundle)
+        arrayDict.put(position, fragment)
+        return fragment
     }
 
     override fun getCount(): Int {
-        return categories.size
+        return categories?.size!!
     }
 
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
