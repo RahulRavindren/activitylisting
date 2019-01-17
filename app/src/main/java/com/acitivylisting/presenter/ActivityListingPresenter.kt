@@ -42,7 +42,7 @@ class ActivityListingPresenter(val view: ActivitiesFragmentView) : BasePresenter
     }
 
     fun initialFetch() {
-        compositeDisposable.add(lisitingRepository?.fetchLisiting(true)
+        compositeDisposable.add(lisitingRepository?.fetchLisiting(false)
             ?.subscribe { t: ListingEntity? -> run{
                 view.buildCarousel(t?.editorial?.carousel)
                 view.buildViewPager(t?.categories)

@@ -1,27 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/bottom_navigation"
             app:startDestination="@id/activitites_frag">
 
     <fragment
             android:id="@+id/activitites_frag"
             android:label="@string/activities_frag"
-            android:name="com.acitivylisting.fragments.ActivitiesFragment"/>
+            android:name="com.acitivylisting.fragments.ActivitiesFragment"
+            tools:layout="@layout/fragment_activitiy_listing"/>
+    />
 
     <fragment
             android:id="@+id/eat_out_frag"
             android:label="@string/eatoutfrag"
-            android:name="com.acitivylisting.fragments.EatOutFragment"/>
+            android:name="com.acitivylisting.fragments.EatOutFragment"
+            tools:layout="@layout/fragment_empty"/>
 
     <fragment
             android:id="@+id/events_frag"
             android:label="@string/eventsfrag"
-            android:name="com.acitivylisting.fragments.EventsFragment"/>
+            android:name="com.acitivylisting.fragments.EventsFragment"
+            tools:layout="@layout/fragment_empty"/>
 
     <fragment
             android:id="@+id/you_frag"
             android:label="@string/youfrag"
-            android:name="com.acitivylisting.fragments.YouFragment"/>
+            android:name="com.acitivylisting.fragments.YouFragment"
+            tools:layout="@layout/fragment_empty"/>
 
 </navigation>

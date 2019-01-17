@@ -34,8 +34,7 @@ class AppConfigBuilder {
             if (INSTANCE == null) {
                 synchronized(AppConfigBuilder::class.java) {
                     if (INSTANCE == null) {
-                        INSTANCE =
-                                AppConfigBuilder(builder)
+                        INSTANCE = AppConfigBuilder(builder)
                     }
                 }
             }

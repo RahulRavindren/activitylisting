@@ -1,9 +1,11 @@
 package com.activitylisting.common.basecommons
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 import com.activitylisting.common.interfaces.BaseView
 import kotlinx.android.synthetic.main.base_activity_layout.*
 import kotlinx.android.synthetic.main.toolbar.*
@@ -31,7 +33,7 @@ open class BaseActivity: AppCompatActivity(), BaseView {
     protected fun initToolbar(status: Boolean) {
         if(status) {
             setSupportActionBar(app_toolbar)
-            val supportActionBar = supportActionBar
+            val supportActionBar = actionBar
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
             supportActionBar?.setHomeButtonEnabled(true)
         }

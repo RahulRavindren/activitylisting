@@ -18,6 +18,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", 'BASE_URL' , '"cleartrip.com"'
     }
     buildTypes {
         release {
@@ -25,6 +26,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
 
     androidExtensions {
         experimental = true
@@ -41,6 +47,7 @@ dependencies {
     implementation project.ext.supportdependencies.design
     implementation project.ext.supportdependencies.recyclerview
     implementation project.ext.supportdependencies.appcompat
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.1.0-alpha03'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
