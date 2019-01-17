@@ -27,6 +27,6 @@
             android:id="@+id/you_frag"
             android:label="@string/youfrag"
             android:name="com.acitivylisting.fragments.YouFragment"
-            tools:layout="@layout/fragment_empty"/>
+            tools:layout="@layout/fragment_you"/>
 
 </navigation>

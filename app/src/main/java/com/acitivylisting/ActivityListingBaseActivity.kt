@@ -34,19 +34,19 @@ class ActivityListingBaseActivity : BaseActivity(), Navigator.OnNavigatorBackPre
             NavigationUI.setupWithNavController(bottom_nav_frag, hostFragment.navController)
             bottom_nav_frag.setOnNavigationItemSelectedListener { item ->
                 when(item.itemId) {
-                    R.id.activitites_frag -> {
+                    R.id.activities_menu -> {
                         hostFragment.navController.navigate(R.id.activitites_frag)
                         true
                     }
-                    R.id.eat_out_frag -> {
+                    R.id.eatout_menu -> {
                         hostFragment.navController.navigate(R.id.eat_out_frag)
                         true
                     }
-                    R.id.events_frag -> {
+                    R.id.events_menu -> {
                         hostFragment.navController.navigate(R.id.events_frag)
                         true
                     }
-                    R.id.you_frag -> {
+                    R.id.you_menu -> {
                         hostFragment.navController.navigate(R.id.you_frag)
                         true
                     }

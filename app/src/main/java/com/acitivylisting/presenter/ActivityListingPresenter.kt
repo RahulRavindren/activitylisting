@@ -5,11 +5,10 @@ import com.activitylisting.common.basecommons.BasePresenter
 import com.activitylisting.data.ListingDataRepository
 import com.activitylisting.data.cache.CacheStoreImpl
 import com.activitylisting.data.source.ListingCacheSource
-import com.activitylisting.data.source.ListingRemoteSource
 import com.activitylisting.domain.entity.CategoryEntity
 import com.activitylisting.domain.entity.CollectionEntity
 import com.activitylisting.domain.entity.ListingEntity
-import io.reactivex.Flowable
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.functions.Consumer
 
@@ -23,11 +22,7 @@ class ActivityListingPresenter(val view: ActivitiesFragmentView) : BasePresenter
     }
 
     private fun initRepository() {
-        lisitingRepository = ListingDataRepository(
-            ListingCacheSource(CacheStoreImpl()),
-            ListingRemoteSource()
-        )
-
+        lisitingRepository = ListingDataRepository(ListingCacheSource(CacheStoreImpl()))
     }
 
     override fun stop() {
@@ -35,14 +30,24 @@ class ActivityListingPresenter(val view: ActivitiesFragmentView) : BasePresenter
     }
 
     fun subscribe(category:CategoryEntity?, consumer:Consumer<List<CollectionEntity>>) {
-        compositeDisposable.add(lisitingRepository?.fetchLisiting(true)
-            ?.flatMap{t -> Flowable.fromIterable(t.collections)}
-            ?.filter { t -> t.categories.contains(category?.id)}
-            ?.toList()?.subscribe(consumer)!!)
+        compositeDisposable.add(lisitingRepository?.fetchLisiting(category, true)
+            ?.flattenAsFlowable { it.collections }
+            ?.filter { t ->
+                if (t.categories != null) {
+                    t.categories.contains(category?.id)
+                } else {
+                    false
+                }
+            }
+            ?.toList()
+            ?.observeOn(AndroidSchedulers.mainThread())
+            ?.subscribe(consumer)!!)
     }
 
     fun initialFetch() {
-        compositeDisposable.add(lisitingRepository?.fetchLisiting(false)
+        compositeDisposable.add(
+            lisitingRepository?.fetchLisiting(null, false)
+                ?.observeOn(AndroidSchedulers.mainThread())
             ?.subscribe { t: ListingEntity? -> run{
                 view.buildCarousel(t?.editorial?.carousel)
                 view.buildViewPager(t?.categories)

@@ -30,6 +30,7 @@ dependencies {
     implementation project(':domain')
     api project(':network')
     implementation project(':cache')
+    implementation project(':common')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation project.ext.supportdependencies.appcompat
     testImplementation 'junit:junit:4.12'

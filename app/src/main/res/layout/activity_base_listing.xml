@@ -6,12 +6,7 @@
                                                    android:layout_width="match_parent"
                                                    android:layout_height="match_parent"
                                                    tools:context=".ActivityListingBaseActivity">
-    <include
-            android:id="@+id/base_layout_toggle"
-            layout="@layout/top_container_toggle"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+    <include layout="@layout/top_container_toggle"/>
 
     <FrameLayout
             android:id="@+id/nav_host_fragment"
@@ -28,6 +23,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:menu="@menu/bottom_nav_menu"
+            app:labelVisibilityMode="labeled"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>

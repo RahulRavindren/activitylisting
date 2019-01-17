@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
             android:id="@+id/activities_menu"
             android:title="@string/activities"
-    />
+            app:showAsAction="always|withText"
+            android:enabled="true"/>
     <item
             android:id="@+id/eatout_menu"
             android:title="@string/eatout"
-    />
+            app:showAsAction="always|withText"
+            android:enabled="true"/>
     <item
-            android:id="@+id/events_mentu"
+            android:id="@+id/events_menu"
             android:title="@string/events"
-    />
+            app:showAsAction="always|withText"
+            android:enabled="true"/>
     <item
             android:id="@+id/you_menu"
-            android:title="@string/you"/>
+            android:title="@string/you"
+            app:showAsAction="always|withText"
+            android:enabled="true"/>
 </menu>

@@ -26,11 +26,11 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation project.ext.cache.nyt_cache
-    implementation project.ext.cache.nyt_store
-    implementation project.ext.cache.nyt_store_kotlin
-    implementation project.ext.cache.nyt_middleware
-    implementation project.ext.cache.nyt_filesys
+    api project.ext.cache.nyt_cache
+    api project.ext.cache.nyt_store
+    api project.ext.cache.nyt_store_kotlin
+    api project.ext.cache.nyt_middleware
+    api project.ext.cache.nyt_filesys
     implementation project.ext.rxjava.rxjava
     implementation project.ext.rxjava.rxjava_android
 
