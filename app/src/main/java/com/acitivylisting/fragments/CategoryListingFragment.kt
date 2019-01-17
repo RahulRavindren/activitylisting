@@ -4,16 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
 import com.acitivylisting.R
 import com.activitylisting.common.C
 import com.activitylisting.common.basecommons.BaseFragment
 import com.activitylisting.domain.entity.CategoryEntity
+import com.activitylisting.domain.entity.CollectionEntity
+import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.fragment_category_listing.*
+
 /**
  * @Author rahulravindran
  */
-class CategoryListingFragment: BaseFragment() {
+class CategoryListingFragment : BaseFragment(), Consumer<List<CollectionEntity>> {
 
     companion object {
         fun getInstance(bundle: Bundle): CategoryListingFragment {
@@ -43,7 +45,7 @@ class CategoryListingFragment: BaseFragment() {
         }
     }
 
+    override fun accept(t: List<CollectionEntity>?) {
 
-
-
+    }
 }

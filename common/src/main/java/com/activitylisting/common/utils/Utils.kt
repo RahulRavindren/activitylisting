@@ -46,6 +46,12 @@ class Utils {
             return httpCacheDir
         }
 
+        fun getCacheDir(): File {
+            return getCacheDir(C.CACHE_DIR_NAME)
+        }
+
+
+
         fun getString(id: Int): String? {
             return application?.getString(id)
         }

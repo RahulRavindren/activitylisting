@@ -18,6 +18,7 @@
             <LinearLayout
                     android:id="@+id/collapse_container"
                     android:layout_width="match_parent"
+                    android:background="@android:color/white"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
@@ -31,6 +32,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:tabMode="scrollable"
+                app:tabBackground="@android:color/white"
+                app:tabIndicatorColor="@android:color/black"
+                app:tabSelectedTextColor="@android:color/black"
+                app:tabTextColor="@color/light_gray_dark_shade"
                 app:tabGravity="fill"/>
     </com.google.android.material.appbar.AppBarLayout>
 

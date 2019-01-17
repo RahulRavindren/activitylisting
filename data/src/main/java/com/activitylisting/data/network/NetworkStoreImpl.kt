@@ -1,17 +1,17 @@
 package com.activitylisting.data.network
 
 import com.activitylisting.data.network.services.ListingService
-import com.activitylisting.data.store.ListingRemoteSource
 import com.activitylisting.domain.entity.ListingEntity
+import com.redbussearch.cache.RequestHandler
 import com.redbussearch.network.RetrofitAdapter
-import io.reactivex.Flowable
+import io.reactivex.Single
 
 /**
  * @Author rahulravindran
  */
-class NetworkStoreImpl : ListingRemoteSource<ListingEntity> {
+class NetworkStoreImpl : RequestHandler<ListingEntity> {
 
-    override fun fetchListing(): Flowable<ListingEntity> {
+    override fun request(): Single<ListingEntity> {
         return RetrofitAdapter.Factory()
             .getRestService(ListingService::class.java, listOf())
             .getLisiting()

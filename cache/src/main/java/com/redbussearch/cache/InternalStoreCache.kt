@@ -7,13 +7,11 @@ import com.nytimes.android.external.store3.base.Fetcher
 import com.nytimes.android.external.store3.base.impl.*
 import okio.BufferedSource
 import java.io.File
-import java.util.concurrent.TimeUnit
 
+const val DEFUALT_CACHE_SIZE: Long = 1024 * 10
 
-class InternalStoreCache<T>(val mFileDir: File, val cacheSize: Long) {
+class InternalStoreCache(val mFileDir: File, val cacheSize: Long) {
 
-
-    private val DEFUALT_CACHE_SIZE: Long = 1024 * 10
 
     fun <RAW> providesStoreBuilder(fetcher: FetcherClass<RAW>): Store<RAW, BarCode> {
 
@@ -29,7 +27,8 @@ class InternalStoreCache<T>(val mFileDir: File, val cacheSize: Long) {
     private fun buildMemoryPolicy(): MemoryPolicy {
         return MemoryPolicy.MemoryPolicyBuilder()
             .setMemorySize(DEFUALT_CACHE_SIZE)
-            .setExpireAfterTimeUnit(TimeUnit.SECONDS).build()
+            .setExpireAfter(30000).build()
     }
+
 
 }

@@ -32,6 +32,14 @@ class CategoryPagerAdapter(val fm: FragmentManager?, val categories: List<Catego
         return categories?.size!!
     }
 
+    fun getFragmentDataPair(position: Int): Pair<CategoryEntity?, Fragment?> {
+        return Pair(categories?.get(position), arrayDict?.get(position))
+    }
+
+    override fun getPageTitle(position: Int): CharSequence? {
+        return categories?.get(position)?.name
+    }
+
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
         arrayDict.remove(position)
         super.destroyItem(container, position, `object`)

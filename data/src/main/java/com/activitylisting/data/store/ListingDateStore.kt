@@ -1,10 +1,7 @@
 package com.activitylisting.data.store
 
 import com.activitylisting.domain.entity.CategoryEntity
-import com.activitylisting.domain.entity.CollectionEntity
-import com.activitylisting.domain.entity.ListingEntity
 import io.reactivex.Completable
-import io.reactivex.Flowable
 import io.reactivex.Single
 
 /**
@@ -12,7 +9,7 @@ import io.reactivex.Single
  */
 interface ListingDateStore<T>{
     fun clearListing(): Completable
-    fun getListing(): Flowable<T>
+    fun getListing(categoryEntity: CategoryEntity?): Single<T>
     fun saveListing(data:Any): Completable
     fun isCached(): Single<Boolean>
 }
