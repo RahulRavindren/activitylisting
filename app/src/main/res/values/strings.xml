@@ -11,4 +11,5 @@
     <string name="eventsfrag">EventsFragment</string>
     <string name="youfrag">YouFragment</string>
     <string name="deals">DEALS</string>
+    <string name="featured">Featured</string>
 </resources>
