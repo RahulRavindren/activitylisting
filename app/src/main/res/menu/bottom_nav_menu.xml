@@ -5,20 +5,24 @@
             android:id="@+id/activities_menu"
             android:title="@string/activities"
             app:showAsAction="always|withText"
+            android:icon="@drawable/activites"
             android:enabled="true"/>
     <item
             android:id="@+id/eatout_menu"
             android:title="@string/eatout"
+            android:icon="@drawable/eatout"
             app:showAsAction="always|withText"
             android:enabled="true"/>
     <item
             android:id="@+id/events_menu"
             android:title="@string/events"
+            android:icon="@drawable/event"
             app:showAsAction="always|withText"
             android:enabled="true"/>
     <item
             android:id="@+id/you_menu"
             android:title="@string/you"
+            android:icon="@drawable/you"
             app:showAsAction="always|withText"
             android:enabled="true"/>
 </menu>

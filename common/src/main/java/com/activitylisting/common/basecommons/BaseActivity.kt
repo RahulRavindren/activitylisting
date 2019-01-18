@@ -1,11 +1,9 @@
 package com.activitylisting.common.basecommons
 
-import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentActivity
 import com.activitylisting.common.interfaces.BaseView
 import kotlinx.android.synthetic.main.base_activity_layout.*
 import kotlinx.android.synthetic.main.toolbar.*
@@ -25,6 +23,7 @@ open class BaseActivity: AppCompatActivity(), BaseView {
         if (layoutResID != View.NO_ID) {
             val infalter = LayoutInflater.from(baseContext)
                     .inflate(layoutResID, null, false)
+            base_view_container.removeAllViews()
             base_view_container.addView(infalter)
         }
     }

@@ -8,13 +8,23 @@
                                                    tools:context=".ActivityListingBaseActivity">
     <include layout="@layout/top_container_toggle"/>
 
+    <View
+            android:id="@+id/line_separator"
+            android:layout_width="0dp"
+            android:background="@color/line_separator_color"
+            android:layout_height="1dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/base_layout_toggle"
+    />
+
     <FrameLayout
             android:id="@+id/nav_host_fragment"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/base_layout_toggle"
+            app:layout_constraintTop_toBottomOf="@+id/line_separator"
             app:layout_constraintBottom_toTopOf="@+id/bottom_nav_frag"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

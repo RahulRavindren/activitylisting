@@ -24,7 +24,7 @@ class CategoryPagerAdapter(val fm: FragmentManager?, val categories: List<Catego
         val bundle = Bundle()
         bundle.putSerializable(C.CATEGORY_ENTITY, category)
         val fragment = CategoryListingFragment.getInstance(bundle)
-        arrayDict.put(position, fragment)
+        arrayDict.append(position, fragment)
         return fragment
     }
 
@@ -35,6 +35,7 @@ class CategoryPagerAdapter(val fm: FragmentManager?, val categories: List<Catego
     fun getFragmentDataPair(position: Int): Pair<CategoryEntity?, Fragment?> {
         return Pair(categories?.get(position), arrayDict?.get(position))
     }
+
 
     override fun getPageTitle(position: Int): CharSequence? {
         return categories?.get(position)?.name

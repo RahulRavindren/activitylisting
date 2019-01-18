@@ -3,6 +3,7 @@ package com.activitylisting.common.utils
 import android.app.Application
 import android.content.Intent
 import com.activitylisting.common.C
+import com.google.gson.Gson
 import io.reactivex.subjects.PublishSubject
 import java.io.File
 import java.text.ParseException
@@ -19,6 +20,8 @@ class Utils {
                 field = value
             }
             get() = field
+
+        val gson = Gson()
 
         var debug: Boolean = true
         var eventSubject = PublishSubject.create<Event>()
@@ -49,7 +52,6 @@ class Utils {
         fun getCacheDir(): File {
             return getCacheDir(C.CACHE_DIR_NAME)
         }
-
 
 
         fun getString(id: Int): String? {

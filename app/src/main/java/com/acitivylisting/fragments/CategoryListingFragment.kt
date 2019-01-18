@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
 import com.acitivylisting.R
+import com.acitivylisting.adapter.CategoryListingAdapter
 import com.activitylisting.common.C
 import com.activitylisting.common.basecommons.BaseFragment
 import com.activitylisting.domain.entity.CategoryEntity
@@ -36,16 +38,28 @@ class CategoryListingFragment : BaseFragment(), Consumer<List<CollectionEntity>>
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
+        initList()
     }
 
     private fun initList() {
         category_list.apply {
-
+            layoutManager = GridLayoutManager(context, 2).apply {
+                spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+                    override fun getSpanSize(position: Int): Int {
+                        if (position % 3 == 0) {
+                            return 2
+                        }
+                        return 1
+                    }
+                }
+            }
         }
+
     }
 
     override fun accept(t: List<CollectionEntity>?) {
-
+        if (!t.isNullOrEmpty()) {
+            category_list.adapter = CategoryListingAdapter(t)
+        }
     }
 }

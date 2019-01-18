@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#546e7a</color>
-    <color name="colorPrimaryDark">#29434e</color>
+    <color name="colorPrimary">#37474f</color>
+    <color name="colorPrimaryDark">#102027</color>
     <color name="colorAccent">#819ca9</color>
     <color name="yellow">#ffca28</color>
     <color name="bottom_icon_tint">#babdbe</color>
     <color name="light_gray_dark_shade">#9ea7aa</color>
+    <color name="light_gray_616161">#616161</color>
+    <color name="black_tint">#70000000</color>
+    <color name="line_separator_color">#000a12</color>
+    <color name="signinbutton_color">#283593</color>
 </resources>

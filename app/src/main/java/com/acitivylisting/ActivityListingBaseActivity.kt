@@ -7,12 +7,12 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.activitylisting.common.basecommons.BaseActivity
 import kotlinx.android.synthetic.main.activity_base_listing.*
+
 /**
  * @Author rahulravindran
  */
 class ActivityListingBaseActivity : BaseActivity(), Navigator.OnNavigatorBackPressListener {
     private var hostFragment:Fragment? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_base_listing)

@@ -11,6 +11,7 @@
             android:layout_width="match_parent"
             android:gravity="center"
             android:paddingTop="8dp"
+            android:background="@color/colorPrimary"
             android:layout_gravity="top"
             android:paddingBottom="8dp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -20,6 +21,8 @@
         <TextView android:layout_width="wrap_content"
                   android:text="@string/travel"
                   android:textAllCaps="true"
+                  android:textSize="12dp"
+                  android:textColor="@android:color/white"
                   android:layout_height="wrap_content"/>
         <Switch
                 android:track="@drawable/switch_bg"
@@ -32,6 +35,8 @@
         <TextView android:layout_width="wrap_content"
                   android:text="@string/local"
                   android:textAllCaps="true"
+                  android:textSize="12dp"
+                  android:textColor="@android:color/white"
                   android:layout_height="wrap_content"/>
     </LinearLayout>
 </merge>

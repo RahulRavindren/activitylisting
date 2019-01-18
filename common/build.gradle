@@ -16,6 +16,8 @@ android {
 
     testInstrumentationRunner "com.surveyapp.android.ApplicationJunitRunner"
 
+    buildConfigField "String", 'IMAGE_BASE_URL' , '"https://ui.cltpstatic.com/"'
+
   }
 
   buildTypes {
@@ -38,6 +40,9 @@ dependencies {
   implementation project.ext.libs.timber
   implementation project.ext.supportdependencies.recyclerview
   implementation project.ext.libs.gson
+  implementation project.ext.libs.glide
+  annotationProcessor project.ext.libs.glide_annotation
+  implementation project.ext.libs.glide_okhttp
   api project.ext.rxjava.rxjava_android
   api project.ext.rxjava.rxjava
 
