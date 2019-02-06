@@ -58,8 +58,9 @@ class CategoryListingFragment : BaseFragment(), Consumer<List<CollectionEntity>>
     }
 
     override fun accept(t: List<CollectionEntity>?) {
-        if (!t.isNullOrEmpty()) {
+        if (!t.isNullOrEmpty() && isViewVisible) {
             category_list.adapter = CategoryListingAdapter(t)
         }
     }
+
 }

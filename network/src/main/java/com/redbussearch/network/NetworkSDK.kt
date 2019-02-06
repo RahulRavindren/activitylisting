@@ -15,6 +15,7 @@ class NetworkSDK {
 
         private var interceptorList: List<out Interceptor> = emptyList()
 
+        // init network SDK
         @JvmStatic
         fun init(context: Context?) {
             //no global interceptor
@@ -25,6 +26,8 @@ class NetworkSDK {
             createClient(interceptorList)
         }
 
+
+        // init network SDK
         @JvmStatic
         fun init(context: Context?, vararg interceptor: Interceptor) {
             if (context == null) {
@@ -36,6 +39,8 @@ class NetworkSDK {
             createClient(interceptorList)
         }
 
+
+        //create client
         private fun createClient(interceptors: Collection<Interceptor>) {
             client = RetrofitAdapter.getClient(interceptors)
         }

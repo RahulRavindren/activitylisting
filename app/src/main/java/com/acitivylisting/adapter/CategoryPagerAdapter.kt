@@ -5,14 +5,15 @@ import android.util.SparseArray
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
+import androidx.fragment.app.FragmentStatePagerAdapter
 import com.acitivylisting.fragments.CategoryListingFragment
 import com.activitylisting.common.C
 import com.activitylisting.common.basecommons.BaseFragment
 import com.activitylisting.domain.entity.CategoryEntity
 
 
-class CategoryPagerAdapter(val fm: FragmentManager?, val categories: List<CategoryEntity>?) : FragmentPagerAdapter(fm) {
+class CategoryPagerAdapter(val fm: FragmentManager?, val categories: List<CategoryEntity>?) :
+    FragmentStatePagerAdapter(fm) {
     val arrayDict = SparseArray<BaseFragment>()
 
     override fun getItem(position: Int): Fragment {

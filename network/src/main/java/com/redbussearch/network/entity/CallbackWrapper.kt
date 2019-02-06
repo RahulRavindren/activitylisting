@@ -1,28 +1,54 @@
 package com.redbussearch.network.entity
 
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.redbussearch.network.exceptions.ServerException
+import io.reactivex.observers.DisposableObserver
+import retrofit2.HttpException
+import java.io.IOException
+import java.net.SocketTimeoutException
 
 /**
  * @Author rahulravindran
+ *  Class CallbackWrapper for Rxjava API call. That does global simple network error handling
  */
-interface ResponseCallback<R> {
-    fun response(body: R)
-    fun error(t: Throwable)
+
+interface NetworkViewType {
+    //for network connection
+    fun onNetworkError()
+
+    //server based error exception transform
+    fun onNetworkError(exception: ServerException)
+
+    //refined message and code
+    fun onNetworkError(message: String, code: Int)
 }
 
-class CallbackWrapper<T>(val callback: ResponseCallback<T>) : Callback<T> {
+abstract class CallbackWrapper<T>(val listener: NetworkViewType?) : DisposableObserver<T>() {
+    abstract fun onSuccess(t: T)
 
-    override fun onFailure(call: Call<T>, t: Throwable) {
-        callback.error(t)
+    override fun onComplete() {
+        dispose()
     }
 
-    override fun onResponse(call: Call<T>, response: Response<T>) {
-        //based on response code covert response to actions needed on the application
-        //single use case of 200
-        if (response.isSuccessful) {
-            callback.response(response.body()!!)
+    override fun onNext(t: T) {
+        onSuccess(t)
+    }
+
+    override fun onError(e: Throwable) {
+        if (listener == null) {
+            throw NullPointerException("network type listener is null")
         }
+
+        if (e is HttpException) {
+            val httpException = e as HttpException
+            listener?.onNetworkError(ServerException(e))
+
+        } else if (e is SocketTimeoutException) {
+            throw e
+        } else if (e is IOException) {
+            val exception = e as IOException
+            listener.onNetworkError()
+        }
+
+        onComplete()
     }
 }

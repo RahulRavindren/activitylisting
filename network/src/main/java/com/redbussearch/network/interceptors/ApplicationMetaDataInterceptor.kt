@@ -6,6 +6,10 @@ import okhttp3.Response
 
 /**
  * @Author rahulravindran
+ *  Interceptor class for adding application metadata as header to every request
+ *  APPLICATION_VERSION_NAME : version name of application
+ *  APPLICATION_ID : application id
+ *  APPLICATION_VERSION_CODE : version code of the application
  */
 class ApplicationMetaDataInterceptor : BaseInterceptor() {
 

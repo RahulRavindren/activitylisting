@@ -3,8 +3,11 @@ package com.redbussearch.network.interceptors
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response
-import java.lang.NullPointerException
 
+/**
+ * @Author rahulravindran
+ *  Base interceptor class
+ */
 abstract class BaseInterceptor : Interceptor{
 
     fun request(chain:Interceptor.Chain?) : Request{

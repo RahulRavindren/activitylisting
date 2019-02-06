@@ -2,14 +2,14 @@ package com.redbussearch.network.interceptors
 
 import com.activitylisting.common.utils.Utils
 import com.redbussearch.network.NetworkSDK
+import com.redbussearch.network.utils.NetworkUtils
 import okhttp3.Interceptor
 import okhttp3.Response
 import surveyapp.com.network.R
-import com.redbussearch.network.exceptions.NetworkConnectivityException
-import com.redbussearch.network.utils.NetworkUtils
 
 /**
  * @Author rahulravindran
+ * Interceptor class that checks network state during request call
  */
 class NetworkConnectivityInterceptor : BaseInterceptor() {
 

@@ -30,7 +30,12 @@ class RetrofitAdapter {
 
     companion object {
 
-
+        /*
+        * build client
+        * @param baseHost   Base api end point
+        * @param interceptors   Collection of interceptors
+        * @return Retrofit
+        */
         fun retrofitClient(baseHost: HttpUrl, interceptors: Collection<Interceptor>?): Retrofit {
             return Retrofit.Builder()
                 .baseUrl(baseHost)
@@ -40,6 +45,11 @@ class RetrofitAdapter {
                 .build()
         }
 
+        /*
+        * build client
+        * @param interceptors: collection of interceptors
+        * @return RetrofitClient
+        */
         fun retrofitClient(interceptors: Collection<Interceptor>?): Retrofit {
             if (ApplicationUrlContainer.getInstance()?.getBaseUrl()?.appBaseUrl?.isEmpty()!!) {
                 throw NullPointerException("base URL empty")
@@ -53,34 +63,44 @@ class RetrofitAdapter {
             )
         }
 
+        // build retrofit client
         fun getClient(interceptors: Collection<Interceptor>?): OkHttpClient {
             val trustManager = generateOpenTrustManager()
+
+            //adding network and application as common interceptors
             var clientBuilder = OkHttpClient.Builder()
                 .addInterceptor(NetworkConnectivityInterceptor())
-                .sslSocketFactory(getSocketFactory(getSSLContext(trustManager)), trustManager[0] as X509TrustManager)
                 .addInterceptor(ApplicationMetaDataInterceptor())
                 .readTimeout(READ_TIME_OUT, TimeUnit.MILLISECONDS)
                 .writeTimeout(WRITE_TIME_OUT, TimeUnit.MILLISECONDS)
 
+            //debug only
             if (BuildConfig.DEBUG) {
                 clientBuilder.addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC))
 
             }
 
+            //interceptors for a particular enpoint
             interceptors?.forEach { interceptor: Interceptor -> clientBuilder.addInterceptor(interceptor) }
             return clientBuilder.build()
         }
 
+        // ssl context basic
         private fun getSSLContext(certificateArray: Array<TrustManager>): SSLContext {
             val sslContext = SSLContext.getInstance("SSL")
             sslContext.init(null, certificateArray, SecureRandom())
             return sslContext
         }
 
+        // socket factory from ssl context
         private fun getSocketFactory(sslContext: SSLContext): SSLSocketFactory {
             return sslContext.socketFactory
         }
 
+
+        /*
+        * accept any certificates from the end point
+        */
         private fun generateOpenTrustManager(): Array<TrustManager> {
             return arrayOf(object : X509TrustManager {
                 override fun checkClientTrusted(p0: Array<out X509Certificate>?, p1: String?) {}
@@ -98,6 +118,7 @@ class RetrofitAdapter {
     }
 
 
+    //factory class for generating api service
     class Factory {
         public fun <T : Any?> getRestService(service: Class<T>, interceptors: Collection<Interceptor>?): T {
             return retrofitClient(interceptors).create(service)
