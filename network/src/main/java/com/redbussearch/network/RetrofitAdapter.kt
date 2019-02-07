@@ -1,6 +1,5 @@
 package com.redbussearch.network
 
-import com.activitylisting.common.utils.ApplicationUrlContainer
 import com.redbussearch.network.interceptors.ApplicationMetaDataInterceptor
 import com.redbussearch.network.interceptors.NetworkConnectivityInterceptor
 import okhttp3.HttpUrl

@@ -26,6 +26,7 @@ open class BaseActivity: AppCompatActivity(), BaseView {
             base_view_container.removeAllViews()
             base_view_container.addView(infalter)
         }
+
     }
 
 

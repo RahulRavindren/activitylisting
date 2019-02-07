@@ -1,6 +1,5 @@
 package com.redbussearch.network.interceptors
 
-import com.activitylisting.common.utils.AppConfigBuilder
 import okhttp3.Interceptor
 import okhttp3.Response
 

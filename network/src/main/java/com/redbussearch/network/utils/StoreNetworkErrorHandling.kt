@@ -1,33 +1,18 @@
-package com.redbussearch.network.entity
+package com.redbussearch.network.utils
 
+import com.redbussearch.network.entity.NetworkViewType
 import com.redbussearch.network.exceptions.ServerException
-import io.reactivex.observers.DisposableObserver
+import io.reactivex.functions.Consumer
 import retrofit2.HttpException
 import java.io.IOException
 import java.net.SocketTimeoutException
 
 /**
  * @Author rahulravindran
- *  Class CallbackWrapper for Rxjava API call. That does global simple network error handling
- *  Used for making request bypassing the Store pipeline.
  */
+class StoreNetworkErrorHandling(val listener: NetworkViewType) : Consumer<Throwable> {
 
-interface NetworkViewType {
-
-}
-
-abstract class CallbackWrapper<T>(val listener: NetworkViewType?) : DisposableObserver<T>() {
-    abstract fun onSuccess(t: T)
-
-    override fun onComplete() {
-        dispose()
-    }
-
-    override fun onNext(t: T) {
-        onSuccess(t)
-    }
-
-    override fun onError(e: Throwable) {
+    override fun accept(e: Throwable?) {
         if (listener == null) {
             throw NullPointerException("network type listener is null")
         }
@@ -42,7 +27,6 @@ abstract class CallbackWrapper<T>(val listener: NetworkViewType?) : DisposableOb
             val exception = e as IOException
             listener.onNetworkError()
         }
-
-        onComplete()
     }
+
 }

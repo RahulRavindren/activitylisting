@@ -1,8 +1,6 @@
 package com.acitivylisting
 
 import android.app.Application
-import com.activitylisting.common.utils.AppConfigBuilder
-import com.activitylisting.common.utils.ApplicationUrlContainer
 import com.activitylisting.common.utils.Logger
 import com.activitylisting.common.utils.Utils
 import com.redbussearch.network.NetworkSDK
